@@ -1,128 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Projetos</title>
-    <!-- Importing CSS of Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Gestão Descomplicada</title>
 
     <!-- Importing Icons CSS of Bootstrap -->
     <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/free.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/brand.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/flag.min.css">
 
-    <!-- Importing CSS of SideBar -->
+    <!-- Importing CSS of Bootstrap -->
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+
+    <!-- Importing CSS of Profile -->
+    <link rel="stylesheet" href="../CSS/profile.css">
+
+    <!-- Importing CSS of Kanban -->
+    <link rel="stylesheet" href="../CSS/kanban.css">
+
+    <!-- Importing CSS of Sidebar -->
     <link rel="stylesheet" href="../CSS/sidebar.css">
 
-    <!-- Import CSS of Kanban -->
-    <link rel="stylesheet" href="../CSS/kanban.css">
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
         <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">
-                <i class="cil-institution icon"></i>
-                Projetos
-            </div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
-                        class="cil-school icon"></i>Projeto 1</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
-                        class="cil-school icon"></i>Projeto 2</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light"><i
-                        class="cil-school icon"></i>Projeto 3</a>
-            </div>
-        </div>
-        <!-- /#sidebar-wrapper -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-light" id="menu-toggle">
-                    <i class="cil-indent-increase icon" id="icon-menu">
-                    </i></button>
-                <h5 class="mt-1">Projeto 01</h5>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <img src="../Assets/soon.png" alt="logo do projeto" class="img-soon">
+                <div class="sidebar-brand-text">Gestão descomplicada</div>
+            </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li class="nav-item active dropdown">
-                            <button class="btn btn-light" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="cil-apps icon"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="cil-user icon"></i> Perfil</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
-                                    <i class="cil-exit-to-app icon"></i> Sair</a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-1">
+
+            <!-- Item Add Project -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#modalAddProject">
+                    <i class="cil-playlist-add"></i>
+                    Adicionar projeto
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-1">
+
+            <!-- Item of Projects -->
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" data-target="#collapseProject" aria-expanded="true"
+                    aria-controls="collapseProject" id="projects">
+                    <i class="cil-arrow-circle-bottom" id="icon-project"></i>
+                    Projetos
+                </a>
+                <div id="collapseProject" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded" id="list-projects">
+                        <a class="collapse-item">
+                            <i class="cil-school icon"></i> Projeto 01
+                        </a>
+                        <a class="collapse-item">
+                            <i class="cil-school icon"></i>Projeto 02
+                        </a>
+                        <a class="collapse-item">
+                            <i class="cil-school icon"></i>Projeto 03
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <i class="cil-arrow-circle-left border-0" id="sidebarToggle"></i>
+            </div>
+
+        </ul>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </li>
-                    </ul>
-                </div>
-            </nav>
 
-            <!-- /#page-content-wrapper -->
-            <div class="container-fluid">
-                <div class="board">
-                    <div class="board-column todo">
-                        <div class="board-column-header">A fazer</div>
-                        <div class="board-column-content">
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
-                                </div>
+                        <!-- Divider -->
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuário</span>
+                                <img class="img-profile rounded-circle" src="../Assets/user.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalProfile">
+                                    <i class="cil-user icon fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
+                                </a>
+                                <!-- Dropdown divider -->
+                                <div class="dropdown-divider"></div>
+                                <!-- Dropdown Logout -->
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="cil-exit-to-app icon fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair...
+                                </a>
                             </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                        </li>
+
+                    </ul>
+
+                </nav>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Projeto 01</h1>
+
+                    <a class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#modalAddJob">
+                        <span class="icon text-white-50">
+                            <i class="cil-briefcase fa-check"></i>
+                        </span>
+                        <span class="text">Criar tarefa</span>
+                    </a>
+
+                    <!-- Grid of Kanban -->
+                    <div class="board">
+
+                        <!-- Column Todo -->
+                        <div class="board-column todo">
+
+                            <!-- Header Todo -->
+                            <div class="board-column-header">A fazer</div>
+
+                            <!-- Content Todo -->
+                            <div class="board-column-content">
+
+                                <div class="board-item card border-bottom-primary">
+                                    <div class="board-item-content">Item #1
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                                <div class="board-item card border-bottom-primary">
+                                    <div class="board-item-content">Item #2
+                                    </div>
+                                </div>
+                                <div class="board-item card border-bottom-primary">
+                                    <div class="board-item-content">Item #3
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="board-column working">
-                        <div class="board-column-header">Fazendo</div>
-                        <div class="board-column-content">
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                        <!-- Column Working -->
+                        <div class="board-column working">
+
+                            <!-- Header Column -->
+                            <div class="board-column-header">Fazendo</div>
+
+                            <!-- Content Column -->
+                            <div class="board-column-content">
+                                <div class="board-item card border-bottom-success">
+                                    <div class="board-item-content">Item #4
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                                <div class="board-item card border-bottom-success">
+                                    <div class="board-item-content">Item #5
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                                <div class="board-item card border-bottom-success">
+                                    <div class="board-item-content">Item #6
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="board-column done">
-                        <div class="board-column-header">Feito</div>
-                        <div class="board-column-content">
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+
+                        <!-- Column Done -->
+                        <div class="board-column done">
+
+                            <!-- Header Column -->
+                            <div class="board-column-header">Feito</div>
+
+                            <!-- Content Column -->
+                            <div class="board-column-content">
+                                <div class="board-item card border-bottom-dark">
+                                    <div class="board-item-content">Item #7
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                                <div class="board-item card border-bottom-dark">
+                                    <div class="board-item-content">Item #8
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="board-item">
-                                <div class="board-item-content"><span>Item #</span>6
+                                <div class="board-item card border-bottom-dark">
+                                    <div class="board-item-content">Item #9
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,11 +241,173 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- /#wrapper -->
 
+    <!-- All modes -->
 
+    <!-- Modal add project -->
+    <div class="modal fade" id="modalAddProject" tabindex="-1" role="dialog" aria-labelledby="modalAddProject"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <!-- Content Modal -->
+            <div class="modal-content">
+
+                <!-- Header Modal -->
+                <div class="modal-header">
+
+                    <!-- Title Modal -->
+                    <h5 class="modal-title">Novo projeto</h5>
+
+                    <!-- Button Close Modal -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Body Modal -->
+                <div class="modal-body">
+
+                    <!-- Information Modal -->
+                    <form>
+                        <div class="form-group">
+                            <label for="name-project" class="col-form-label">Nome:</label>
+                            <input type="text" class="form-control" id="name-project">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Modal -->
+                <div class="modal-footer">
+
+                    <!-- Button Close Modal -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+
+                    <!-- Button add Project -->
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                        id="addProject">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal add job -->
+    <div class="modal fade" id="modalAddJob" tabindex="-1" role="dialog" aria-labelledby="modalAddJob"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <!-- Content Modal -->
+            <div class="modal-content">
+
+                <!-- Header Modal -->
+                <div class="modal-header">
+
+                    <!-- Title Modal -->
+                    <h5 class="modal-title">Nova tarefa</h5>
+
+                    <!-- Button Close Modal  -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Body Modal -->
+                <div class="modal-body">
+
+                    <!-- Informtion Modal -->
+                    <form>
+                        <div class="form-group">
+                            <label for="name-job" class="col-form-label">Nome:</label>
+                            <input type="text" class="form-control" id="name-job">
+                        </div>
+                        <div class="form-group">
+                            <label for="column-job">Escolha a coluna:</label>
+                            <select class="form-control" id="column-job">
+                                <option>A Fazer</option>
+                                <option>Fazendo</option>
+                                <option>Feito</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Modal -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="addJob">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfile"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <!-- Content Modal -->
+            <div class="modal-content">
+
+                <!-- Body Modal -->
+                <div class="modal-body">
+
+                    <!-- Profile Content -->
+                    <div class="profile profile-hover">
+                        <div class="profile-header">
+                        </div>
+                        <!-- Photo User  -->
+                        <div class="profile-avatar">
+                            <img alt="avatar" src="../Assets/user.png">
+                        </div>
+
+                        <!-- Information User -->
+                        <div class="profile-info">
+                            <h2>Usuário</h2>
+                            <div class="profile-description">Sobrenome</div>
+                            <div class="profile-description">usuario@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <!-- Content Modal -->
+            <div class="modal-content">
+
+                <!-- Header Modal -->
+                <div class="modal-header">
+
+                    <!-- Title Modal -->
+                    <h5 class="modal-title" id="logoutModal">Você realmente deseja sair?</h5>
+
+                    <!-- Button Close -->
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <!-- Body Content -->
+                <div class="modal-body">Selecione <span>Sair</span> se você estiver pronto para encerrar sua sessão
+                    atual.</div>
+
+                <!-- Footer Modal -->
+                <div class="modal-footer">
+
+                    <!-- Button Close Modal  -->
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+
+                    <!-- Button Logout Modal -->
+                    <a class="btn btn-primary" href="login.html">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Importing JavaScript of Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -152,9 +425,14 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/muuri/0.5.3/muuri.min.js'></script>
 
-    <!-- Importing JavaScript of SideBar -->
-    <script src="../JavaScript/sidebar.js"></script>
+    <!-- Importing JavaScript of Kanban -->
     <script src="../JavaScript/kanban.js"></script>
+
+    <!-- Script of SideBar -->
+    <script src="../JavaScript/sidebar.js"></script>
+
+    <!-- Script of Task -->
+    <script src="../JavaScript/task.js"></script>
 </body>
 
 </html>

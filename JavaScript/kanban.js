@@ -3,11 +3,7 @@ var columnGrids = [];
 var boardGrid;
 var grid;
 
-// Define the column grids so we can drag those
-// items around.
 itemContainers.forEach(function (container) {
-
-    // Instantiate column grid.
     grid = new Muuri(container, {
         items: '.board-item',
         layoutDuration: 400,
@@ -22,41 +18,40 @@ itemContainers.forEach(function (container) {
         dragReleaseEasing: 'ease'
     })
         .on('dragStart', function (item) {
-            // Let's set fixed widht/height to the dragged item
-            // so that it does not stretch unwillingly when
-            // it's appended to the document body for the
-            // duration of the drag.
             item.getElement().style.width = item.getWidth() + 'px';
             item.getElement().style.height = item.getHeight() + 'px';
         })
         .on('dragReleaseEnd', function (item) {
-            // Let's remove the fixed width/height from the
-            // dragged item now that it is back in a grid
-            // column and can freely adjust to it's
-            // surroundings.
             item.getElement().style.width = '';
             item.getElement().style.height = '';
-            // Just in case, let's refresh the dimensions of all items
-            // in case dragging the item caused some other items to
-            // be different size.
+
             columnGrids.forEach(function (grid) {
+                let classGrid = $(grid.getElement().parentNode).attr('class');
+                let itemsGrid = grid.getItems();
+
+                for (let i = 0; i < itemsGrid.length; i++) {
+                    let assignment = $(itemsGrid[i].getElement());
+
+                    $(assignment).removeClass();
+
+                    if (classGrid.includes('todo')) {
+                        assignment.addClass('board-item card border-bottom-primary');
+                    } else if (classGrid.includes('working')) {
+                        assignment.addClass('board-item card border-bottom-success');
+                    } else {
+                        assignment.addClass('board-item card border-bottom-dark');
+                    }
+                }
                 grid.refreshItems();
             });
         })
         .on('layoutStart', function () {
-            // Let's keep the board grid up to date with the
-            // dimensions changes of column grids.
             boardGrid.refreshItems().layout();
         });
 
-    // Add the column grid reference to the column grids
-    // array, so we can access it later on.
     columnGrids.push(grid);
-
 });
 
-// Instantiate the board grid so we can drag those
-// columns around.
 boardGrid = new Muuri('.board', {
     layoutDuration: 400,
     layoutEasing: 'ease',

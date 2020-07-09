@@ -1,0 +1,64 @@
+.profile {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.profile.profile-hover {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.profile.profile-hover .profile-header {
+    background: url("https://sou.com.br/wp-content/uploads/2015/05/capa_whitepaper-e1468445364999-1.jpg");
+    background-size: cover;
+    height: 135px;
+}
+
+.profile.profile-hover .profile-avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.profile.profile-hover .profile-avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.profile.profile-hover .profile-info {
+    padding: 4px 8px 10px;
+}
+
+.profile.profile-hover .profile-info .profile-description {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.img-profile {
+    width: 100px;
+    height: 50px;
+}
