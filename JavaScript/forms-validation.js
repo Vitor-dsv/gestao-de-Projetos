@@ -8,7 +8,7 @@
 
                 if (form.checkValidity()) {
                     event.stopPropagation();
-                    window.location.href = 'file:///C:/Users/adria/Documents/Projetos/Trabalhos%20SENAI/Trabalhos%20de%20WebDesign/Entega%20final/Projeto/HTML/main-screen.html';
+                    window.location.href = '../HTML/main-screen.html';
                 };
 
                 form.classList.add('was-validated');
@@ -23,7 +23,7 @@
 
                 if (form.checkValidity()) {
                     event.stopPropagation();
-                    window.location.href = 'file:///C:/Users/adria/Documents/Projetos/Trabalhos%20SENAI/Trabalhos%20de%20WebDesign/Entega%20final/Projeto/HTML/login.html';
+                    window.location.href = '../HTML/login.html';
                 };
 
                 form.classList.add('was-validated');
@@ -38,7 +38,7 @@
 
                 if (form.checkValidity()) {
                     event.stopPropagation();
-                    window.location.href = 'file:///C:/Users/adria/Documents/Projetos/Trabalhos%20SENAI/Trabalhos%20de%20WebDesign/Entega%20final/Projeto/HTML/login.html';
+                    window.location.href = '../HTML/login.html';
                 };
 
                 form.classList.add('was-validated');
